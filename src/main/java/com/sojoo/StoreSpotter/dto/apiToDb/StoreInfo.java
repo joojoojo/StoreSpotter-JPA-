@@ -1,21 +1,23 @@
 package com.sojoo.StoreSpotter.dto.apiToDb;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 import org.hibernate.annotations.Type;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.geom.PrecisionModel;
-//import org.springframework.data.geo.Point;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @MappedSuperclass
-public abstract class StoreInfo {
+public abstract class StoreInfo  implements Serializable {
     @Id
     @Column(name = "bizes_id")
     private String bizesId;
@@ -37,7 +39,7 @@ public abstract class StoreInfo {
 //        this.bizesId = bizes_id;
 //        this.bizesNm = bizes_nm;
 //        this.rdnmAdr = rdnm_adr;
-//        this.coordinates = coordinates;
+//        this.coordinates = setCoordinates(getCoordinates().getX(), getCoordinates().getY());
 //        this.regionFk = region_fk;
 //    }
 

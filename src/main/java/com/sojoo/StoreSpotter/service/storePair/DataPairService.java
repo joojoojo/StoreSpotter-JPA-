@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Entity;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DataPairService {
@@ -57,16 +58,20 @@ public class DataPairService {
     public void save_industryPairData() throws Exception{
         try{
             long beforeTime = System.currentTimeMillis(); // 코드 실행 전에 시간 받아오기
+            System.out.println("Hibernate 버전: " + org.hibernate.Version.getVersionString());
 
             List<Industry> industryList = industryRepository.findAll();
             for (Industry industry : industryList){
                 String indust_id = industry.getIndustId();
                 switch (indust_id){
                     case "G20405":
-                        List<ConvenienceStore> convenienceStoreList = convenienceStoreRepository.findAll();
+//                        List<ConvenienceStore> convenienceStoreList = convenienceStoreRepository.findAll();
+                        List<ConvenienceStore> convenienceStoreList = convenienceStoreRepository.findConvenienceStore();
+                        System.out.println("리스트:"+convenienceStoreList);
                         selectDataPair(convenienceStoreList, indust_id);
                     case "I21201":
-                        List<Cafe> cafeList = cafeRepository.findAll();
+//                        List<Cafe> cafeList = cafeRepository.findAll();
+                        List<Cafe> cafeList =  cafeRepository.findAllCafe();
                         selectDataPair(cafeList, indust_id);
                 }
 
@@ -89,6 +94,7 @@ public class DataPairService {
     public <T extends StoreInfo> void selectDataPair(List<T> storeDataList, String indust_id) throws Exception {
         try {
             for (StoreInfo storeData : storeDataList) {
+                System.out.println("storeData :" + storeData);
                 String name = storeData.getBizesNm();
                 Point point = storeData.getCoordinates();
                 Integer region = storeData.getRegionFk();
@@ -106,16 +112,18 @@ public class DataPairService {
 //        for (PairData pairdata : pairDataList) {
 //            insertPairData(pairdata, indust_id);
 //        }
+        String st_coor = String.valueOf(point);
         switch (indust_id){
-//            case "G20405":
-//                List<ConveniencePair> conveniencePairList= conveniencePairRepository.convenience_distanceSphere(name, point, region);
-//                conveniencePairRepository.saveAll(conveniencePairList);
+            case "G20405":
+                List<ConveniencePair> conveniencePairList= conveniencePairRepository.convenience_distanceSphere(name, st_coor, region);
+                conveniencePairRepository.saveAll(conveniencePairList);
+                break;
             case "I21201":
-                List<CafePair> cafePairList= cafePairRepository.cafe_distanceSphere(name, point, region);
-                for (CafePair cafePair : cafePairList){
-                    cafePairRepository.save(cafePair);
-                }
-//                cafePairRepository.saveAll(cafePairList);
+                List<CafePair> cafePairList= cafePairRepository.cafe_distanceSphere(name, st_coor, region);
+//                for (CafePair cafePair : cafePairList){
+//                    cafePairRepository.save(cafePair);
+//                }
+                cafePairRepository.saveAll(cafePairList);
         }
 
     }

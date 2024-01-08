@@ -10,8 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface CafeRepository extends JpaRepository<Cafe, Long> {
+public interface CafeRepository extends JpaRepository<Cafe, String> {
     List<Cafe> findAll();
+
+    @Query(value = "SELECT c.bizes_id, c.bizes_nm, c.rdnm_adr, ST_AsText(c.coordinates), c.region_fk " +
+            "FROM cafe c", nativeQuery = true)
+    List<Cafe> findAllCafe();
 
     @Modifying
     @Transactional

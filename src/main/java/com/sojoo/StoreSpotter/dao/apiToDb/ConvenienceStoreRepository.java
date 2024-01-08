@@ -8,9 +8,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface ConvenienceStoreRepository extends JpaRepository<ConvenienceStore, Long> {
+public interface ConvenienceStoreRepository extends JpaRepository<ConvenienceStore, String> {
+    @Override
     List<ConvenienceStore> findAll();
+
+    @Query(value = "SELECT c.bizes_id, c.bizes_nm, (c.coordinates), c.rdnm_adr, c.region_fk " +
+            "FROM convenience_store c", nativeQuery = true)
+    List<ConvenienceStore> findConvenienceStore();
+
 
     @Modifying
     @Transactional

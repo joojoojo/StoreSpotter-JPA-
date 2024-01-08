@@ -44,8 +44,12 @@ dependencies {
 
 	// Hibernate ORM 의존성 추가
 	implementation 'org.hibernate:hibernate-core:5.6.15.Final'
+
 	// Hibernate Spatial 의존성 추가
-	implementation 'org.hibernate:hibernate-spatial:5.6.15.Final'
+	implementation 'org.hibernate:hibernate-spatial'
+//	implementation group: 'org.hibernate', name: 'hibernate-spatial', version: '5.6.15.Final'
+//	implementation 'org.locationtech.jts:jts-core'
+
 }
 
 

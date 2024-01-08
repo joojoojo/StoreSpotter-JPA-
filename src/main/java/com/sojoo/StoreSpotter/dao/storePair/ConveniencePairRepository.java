@@ -13,6 +13,8 @@ import java.util.List;
 
 @Repository
 public interface ConveniencePairRepository extends JpaRepository<ConveniencePair, Integer> {
+
+
     @Query(value = "SELECT ST_DISTANCE_SPHERE(ST_GeomFromText(:st_coor), c.coordinates) AS dist," +
             "                       :region_fk AS region_fk," +
             "                       :st_nm AS st_nm," +
