@@ -31,6 +31,7 @@ services:
       - '80:80'
       - '443:443'
     volumes:
+#      - /etc/letsencrypt:/etc/letsencrypt:ro
       - /home/ubuntu/compose/conf:/etc/nginx/conf.d
       - /home/ubuntu/compose/certbot/conf:/etc/letsencrypt
       - /home/ubuntu/compose/certbot/www:/var/www/certbot
