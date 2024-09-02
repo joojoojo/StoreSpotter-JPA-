@@ -23,4 +23,5 @@ public enum ErrorCode {
     private final int status;
     private final String errorCode;
     private final String message;
+
 }
