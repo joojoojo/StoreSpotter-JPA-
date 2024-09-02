@@ -2,7 +2,6 @@ package com.sojoo.StoreSpotter.common.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
