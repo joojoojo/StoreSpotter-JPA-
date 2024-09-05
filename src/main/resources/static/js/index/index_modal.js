@@ -1,7 +1,3 @@
-$(document).ready(function(){
-    $('#myModal').modal('show');
-});
-
 function setCookie(name, value, expiredays){
     var today = new Date();
     today.setDate(today.getDate() + expiredays);
@@ -21,14 +17,14 @@ function getCookie(name) {
     }
 }
 $("#modal-today-close").click(function() {
-    $("#myModal").modal("hide");
+    $(".modal").style.display = "hide";
     setCookie("mycookie", 'popupEnd', 1);
 })
 
 var checkCookie = getCookie("mycookie");
 
 if(checkCookie === 'popupEnd') {
-    $("#myModal").modal("hide");
+    $(".modal").style.display = "hide";
 } else {
-    $('#myModal').modal("show");
+    $(".modal").style.display = "show";
 }
