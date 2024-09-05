@@ -26,5 +26,5 @@ var checkCookie = getCookie("mycookie");
 if (checkCookie === 'popupEnd') {
     $(".modal").css("display", "none");
 } else {
-    $(".modal").css("display", "block"); // 또는 'flex'로 설정 가능
+    $(".modal").css("display", "block");
 }
