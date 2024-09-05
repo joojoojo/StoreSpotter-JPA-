@@ -17,7 +17,7 @@ html, body {
 }
 
 /*모달 팝업 영역 스타일링*/
-.modal {
+.info-modal {
     /*팝업 배경*/
     display: block;
     position: absolute;
@@ -28,7 +28,7 @@ html, body {
     overflow: hidden;
     background: rgba(0,0,0,0.5);
 }
-.modal .modal_popup {
+.info-modal .info-modal_popup {
     /*팝업*/
     position: absolute;
     top: 50%;
@@ -38,7 +38,7 @@ html, body {
     background: #ffffff;
     border-radius: 20px;
 }
-.modal .modal_popup .close_btn {
+.info-modal .info-modal_popup .close_btn {
     display: block;
     padding: 10px 20px;
     background-color: rgb(116, 0, 0);
