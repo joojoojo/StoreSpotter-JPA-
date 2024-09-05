@@ -23,8 +23,8 @@ $("#modal-today-close").click(function() {
 
 var checkCookie = getCookie("mycookie");
 
-if(checkCookie === 'popupEnd') {
-    $(".modal").style.display = "hide";
+if (checkCookie === 'popupEnd') {
+    $(".modal").css("display", "none");
 } else {
-    $(".modal").style.display = "show";
+    $(".modal").css("display", "block"); // 또는 'flex'로 설정 가능
 }
