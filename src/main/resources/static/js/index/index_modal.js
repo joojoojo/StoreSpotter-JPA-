@@ -17,14 +17,14 @@ function getCookie(name) {
     }
 }
 $("#modal-today-close").click(function() {
-    $(".modal").style.display = "hide";
+    $(".info-modal").style.display = "hide";
     setCookie("mycookie", 'popupEnd', 1);
 })
 
 var checkCookie = getCookie("mycookie");
 
 if (checkCookie === 'popupEnd') {
-    $(".modal").css("display", "none");
+    $(".info-modal").css("display", "none");
 } else {
-    $(".modal").css("display", "block");
+    $(".info-modal").css("display", "block");
 }
