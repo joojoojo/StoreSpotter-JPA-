@@ -19,7 +19,8 @@ html, body {
 /*모달 팝업 영역 스타일링*/
 .info-modal {
     /*팝업 배경*/
-    display: block;
+    z-index: 999;
+    display: none;
     position: absolute;
     top:0;
     left: 0;
@@ -27,6 +28,11 @@ html, body {
     height: 100vh;
     overflow: hidden;
     background: rgba(0,0,0,0.5);
+}
+
+.info-modal_popup{
+    width: 90%;
+    height: 90%;
 }
 .info-modal .info-modal_popup {
     /*팝업*/
@@ -47,6 +53,11 @@ html, body {
     color: #fff;
     cursor: pointer;
     transition: box-shadow 0.2s;
+}
+
+#modal-info-icon{
+    height: 100%;
+    width: 100%;
 }
 
 #map {
