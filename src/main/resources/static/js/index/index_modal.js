@@ -1,3 +1,12 @@
+const info_modal = document.querySelector('.info-modal');
+const modalClose = document.querySelector('.close_btn');
+
+//닫기 버튼을 눌렀을 때 모달팝업이 닫힘
+modalClose.addEventListener('click',function(){
+    //display 속성을 none으로 변경
+    info_modal.style.display = 'none';
+});
+
 function setCookie(name, value, expiredays){
     var today = new Date();
     today.setDate(today.getDate() + expiredays);
