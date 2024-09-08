@@ -47,7 +47,7 @@ html, body {
     background: #ffffff;
     border-radius: 20px;
 }
-.info-modal .info-modal_popup {
+.info-modal .info-modal_popup .close_btn .modal-today-close{
     display: block;
     padding: 10px 20px;
     background-color: rgb(116, 0, 0);
@@ -59,9 +59,9 @@ html, body {
 }
 
 .modal-today-close .close_btn {
-    border: 1px solid gray;
-    background-color: white;
-    border-radius: 5px;
+    border: 1px solid gray !important;
+    background-color: white !important;
+    border-radius: 5px !important;
 }
 
 .info-modal-btn{
