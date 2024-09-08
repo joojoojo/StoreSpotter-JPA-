@@ -47,16 +47,16 @@ html, body {
     background: #ffffff;
     border-radius: 20px;
 }
-.info-modal .info-modal_popup .close_btn .modal-today-close{
-    display: block;
-    padding: 10px 20px;
-    background-color: rgb(116, 0, 0);
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
-}
+/*.info-modal .info-modal_popup .close_btn .modal-today-close{*/
+/*    display: block;*/
+/*    padding: 10px 20px;*/
+/*    background-color: rgb(116, 0, 0);*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    color: #fff;*/
+/*    cursor: pointer;*/
+/*    transition: box-shadow 0.2s;*/
+/*}*/
 
 .modal-today-close .close_btn {
     border: 1px solid gray !important;
