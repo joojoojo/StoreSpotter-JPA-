@@ -47,7 +47,7 @@ html, body {
     background: #ffffff;
     border-radius: 20px;
 }
-.info-modal .info-modal_popup .close_btn {
+.info-modal .info-modal_popup {
     display: block;
     padding: 10px 20px;
     background-color: rgb(116, 0, 0);
