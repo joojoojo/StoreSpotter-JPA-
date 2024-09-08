@@ -20,7 +20,7 @@ html, body {
 .info-modal {
     /*팝업 배경*/
     z-index: 999;
-    display: block;
+    display: none;
     position: absolute;
     top:0;
     left: 0;
@@ -47,7 +47,7 @@ html, body {
     background: #ffffff;
     border-radius: 20px;
 }
-.info-modal .info-modal_popup .close_btn .modal-today-close {
+.info-modal .info-modal_popup .close_btn {
     display: block;
     padding: 10px 20px;
     background-color: rgb(116, 0, 0);
@@ -56,6 +56,12 @@ html, body {
     color: #fff;
     cursor: pointer;
     transition: box-shadow 0.2s;
+}
+
+.modal-today-close .close_btn {
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .info-modal-btn{
