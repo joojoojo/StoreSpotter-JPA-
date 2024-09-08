@@ -1,18 +1,32 @@
-const info_modal = document.querySelector('.info-modal');
-const modalClose = document.querySelector('.close_btn');
+$(document).ready(function() {
+    // "닫기" 버튼 클릭 시 모달 닫기
+    $(".close_btn").click(function() {
+        $(".info-modal").css("display", "none");
+    });
 
-// 닫기 버튼을 눌렀을 때 모달 팝업이 닫힘
-modalClose.addEventListener('click', function() {
-    // display 속성을 none으로 변경
-    info_modal.style.display = 'none';
+    // "24시간 보지 않기" 버튼 클릭 시 모달 닫기 및 쿠키 설정
+    $("#modal-today-close").click(function() {
+        $(".info-modal").css("display", "none");
+        setCookie("mycookie", 'popupEnd', 1); // 1일 후 만료되는 쿠키 설정
+    });
+
+    // 페이지 로드 시 쿠키 확인하여 모달 표시/숨김
+    var checkCookie = getCookie("mycookie");
+    if (checkCookie === 'popupEnd') {
+        $(".info-modal").css("display", "none");
+    } else {
+        $(".info-modal").css("display", "block");
+    }
 });
 
+// 쿠키 설정 함수
 function setCookie(name, value, expiredays) {
     var today = new Date();
     today.setDate(today.getDate() + expiredays);
     document.cookie = name + '=' + escape(value) + '; expires=' + today.toGMTString() + '; path=/';
 }
 
+// 쿠키 가져오는 함수
 function getCookie(name) {
     var cookie = document.cookie;
     if (cookie !== "") {
@@ -25,17 +39,4 @@ function getCookie(name) {
         }
     }
     return null;
-}
-
-$("#modal-today-close").click(function() {
-    $(".info-modal").css("display", "none");
-    setCookie("mycookie", 'popupEnd', 1);
-});
-
-var checkCookie = getCookie("mycookie");
-
-if (checkCookie === 'popupEnd') {
-    $(".info-modal").css("display", "none");
-} else {
-    $(".info-modal").css("display", "block");
 }
